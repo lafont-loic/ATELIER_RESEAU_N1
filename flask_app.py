@@ -99,6 +99,7 @@ def index():
     <h1>Network Lab (Flask)</h1>
     <ul>
       <li><a href="/osi">/osi</a> — OSI mapping</li>
+      <li><a href="/dhcp">/osi</a> — Protocole DHCP</li>
       <li><a href="/service">/service</a> — service contract & dependencies</li>
       <li><a href="/slow?ms=300">/slow</a> — simulate latency</li>
       <li><a href="/loss?p=0.2">/loss</a> — simulate errors/loss</li>
@@ -160,6 +161,69 @@ def osi():
     }
 
     return jsonify(info)
+
+@app.get("/dhcp")
+def dhcp():
+    info = {
+        "protocole": "DHCP",
+        "signification": "Dynamic Host Configuration Protocol",
+        "role": "Attribuer automatiquement une configuration réseau à un équipement.",
+        
+        "a_quoi_sert_dhcp": {
+            "adresse_ip": "Attribue une adresse IP au client.",
+            "masque": "Fournit le masque de sous-réseau.",
+            "passerelle": "Indique la passerelle par défaut.",
+            "dns": "Fournit l'adresse des serveurs DNS.",
+            "autres_parametres": "Peut aussi fournir d'autres options réseau."
+        },
+
+        "ports": {
+            "client": 68,
+            "serveur": 67,
+            "transport": "UDP"
+        },
+
+        "fonctionnement": {
+            "etape_1_discover": "Le client envoie un message DHCP Discover pour chercher un serveur DHCP.",
+            "etape_2_offer": "Le serveur répond avec un DHCP Offer proposant une adresse IP.",
+            "etape_3_request": "Le client répond avec un DHCP Request pour demander l'adresse proposée.",
+            "etape_4_ack": "Le serveur confirme avec un DHCP ACK et attribue officiellement la configuration."
+        },
+
+        "mnemonique": "DORA = Discover, Offer, Request, Acknowledge",
+
+        "bail": {
+            "definition": "L'adresse IP est attribuée pour une durée limitée appelée bail.",
+            "renouvellement": "Le client tente de renouveler son bail avant son expiration."
+        },
+
+        "avantages": [
+            "Automatisation de la configuration réseau",
+            "Réduction des erreurs de saisie manuelle",
+            "Gestion centralisée des adresses IP",
+            "Gain de temps pour les administrateurs"
+        ],
+
+        "risques_ou_points_de_vigilance": [
+            "Un faux serveur DHCP peut distribuer de mauvaises configurations",
+            "Une mauvaise plage d'adresses peut provoquer des conflits",
+            "Le serveur DHCP est un point important de l'infrastructure"
+        ],
+
+        "couches_osi": {
+            "couche_7": "Service réseau utilisé par les équipements",
+            "couche_4": "Utilise UDP",
+            "couche_3": "Fonctionne sur IP",
+            "remarque": "DHCP est généralement associé à la couche application dans le modèle OSI."
+        },
+
+        "exemple_concret": "Quand un PC ou un smartphone se connecte à un réseau, il demande automatiquement une adresse IP via DHCP."
+    }
+
+    return jsonify(info)
+
+
+
 
 @app.get("/service")
 def service():
