@@ -104,7 +104,6 @@ C2    | (Ethernet) | = [En-tête L3 + Données] | (CRC/FCS)   | <-- C'est une "T
                           | (Envoyé sur le média physique)
                           V
                [ bits sur le câble/onde ]
-<img width="678" height="695" alt="image" src="https://github.com/user-attachments/assets/c524a409-3da5-4ca5-bd2e-7e1ea21b5ccd" />
 
 --------------------------------------------------------------------
 🧠 Troubleshooting :
