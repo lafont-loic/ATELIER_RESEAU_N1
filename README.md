@@ -54,12 +54,17 @@ Vous avez vu dans cette séquence comment créer des secrets GiHUB afin de mettr
 Vous pouvez observez les différentes couches OSI sur votre site **{site}.pythonanywhere.com/osi**  
   
 **Exercice 1 : Définissez les termes suivants (Répondre directement dans GitHub)**    
-* Un protocole,  
-* Une entité protocolaire,
-* Un service,  
-* Une primitive de service,  
-* Une Service Data Unit (SDU) par rapport à une PDU  
-* Un point d'accès à un service SAP (Service Access Point)  
+* Un protocole : Définit les règles et les procédures permettant à deux processus informatiques d'échanger des données, notamment à travers un réseaux. Les protocoles de celui-çi sont considérés comme un langage commun entres les ordinateurs
+  
+* Une entité protocolaire : Une entité protocolaire émet et reçoit des message sur un ou plusieurs SAP (Service Access Point). Plusieurs entité protocolaire de niveaux différentes associées par des SAP forment une pile d'entité protocolaires (ou pile de protocoles).
+* Un service implique presque toutes les technologies et tous les processus utilisées par les entreprises, tels que les platformes de paiement, les serveurs, les sites web, les produits, les piles d'applications et même les personnes.
+
+* Une primitive de service : Chaque prémitive spécifie une action ou fournit le résultat d'une action précédantes, et comporte souventles paramètres nécessaires
+
+* Une Service Data Unit (SDU) par rapport à une PDU : Le Services Data Unit (SDU) c'est l'unité de données reçue de la couche supérieurs. C'est le "contenu" pur que la couche actuelle doit transporter sans encore y avoir touché.
+Protocol Data Unit (PDU) C'est l'unitéde données Complèete de la couche actuelle. Ellee comprend la SDU ( Les données) à laquelle on a ajouté des informations de contrôle (le Header ou l'entête).
+
+* Un point d'accès à un service SAP (Service Access Point) : Dans l'architecture en couche , la couche N fournit un services à la couche suivante. Pour que ce transfert de données (la SDU dont nous parlions juste avant) se produise, il faut un point de contact. Exemple: La couche N est le fournisseur de services. La couche suivante est l'utilisateur de services. Le SAP est l'adresse ou l'idantifiant qui permet à la couche suivante de savoir quelle entité de la couche N elle doit s'adresser.
 
 ---------------------------------------------------
 🗺️ Séquence 5 : Retour sur le protocole DHCP
