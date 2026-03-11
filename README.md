@@ -73,7 +73,39 @@ Vous pouvez observez le protocole DHCP sur votre site **{site}.pythonanywhere.co
   
 **Exercice 2 : Créer une image montrant l’encapsulation des couches suivantes**    
 _Collez votre image ici_ 
-  
+[ DIRECTION DU FLUX : VERS LE BAS (ÉMETTEUR) ]
+
+      +-----------------------------------------+
+      |       Données d'application (Data)      |
+      |          (ex: Page Web, Fichier)         |
+      +-----------------------------------------+
+                          |
+                          | (Passage à la Couche Transport)
+                          V
+      +-------------+---------------------------+
+      | En-tête L4 |       Données             |
+C4    | (TCP/UDP)   |   d'application (Data)    |  <-- C'est un "Segment"
+      +-------------+---------------------------+
+                          |
+                          | (L'ensemble du Segment devient la donnée pour L3)
+                          V
+      +-------------+---------------------------+
+      | En-tête L3 |       Données L3 (IP)     |
+C3    |   (IP)      | = [En-tête L4 + Données] |  <-- C'est un "Paquet"
+      +-------------+---------------------------+
+                          |
+                          | (L'ensemble du Paquet devient la donnée pour L2)
+                          V
+      +-------------+---------------------------+-------------+
+      | En-tête L2 |       Données L2 (ETH)    | Queue L2    |
+C2    | (Ethernet) | = [En-tête L3 + Données] | (CRC/FCS)   | <-- C'est une "Trame"
+      +-------------+---------------------------+-------------+
+                          |
+                          | (Envoyé sur le média physique)
+                          V
+               [ bits sur le câble/onde ]
+<img width="678" height="695" alt="image" src="https://github.com/user-attachments/assets/c524a409-3da5-4ca5-bd2e-7e1ea21b5ccd" />
+
 --------------------------------------------------------------------
 🧠 Troubleshooting :
 ---------------------------------------------------
